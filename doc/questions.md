@@ -1,8 +1,8 @@
-# M5 — Pi Architecture Questions & Learning Workbook
+# Pi Architecture Questions & Learning Workbook
 
-[中文](questions.zh-CN.md) | [How to use](../../README.md)
+[中文](questions.zh-CN.md) | [How to use](../README.md)
 
-Public adaptation of the M5 source-reading workbook. No private student answers or completed progress are included. M5 is the original module label; no earlier module or private project is required.
+Learn Pi architecture through source-reading questions. No private student answers or completed progress are included. No earlier course or private project is required.
 
 ## Source baseline
 
@@ -193,7 +193,7 @@ Start with the smallest useful sources instead of reading Pi front-to-back.
 
 Work block-by-block. Within each block, answer the questions in order unless a later question is needed to resolve an earlier one.
 
-The four core blocks mirror the M5 architecture map:
+The four core blocks cover Pi's architecture:
 
 1. **Agent Loop & Lifecycle**
 2. **State / Session**

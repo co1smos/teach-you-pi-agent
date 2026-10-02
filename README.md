@@ -2,14 +2,35 @@
 
 [中文](README.zh-CN.md)
 
-This community learning fork turns an interactive Pi source-reading exercise into a reusable workbook. It is not an official Pi course or a replacement implementation. **M5** is the original module name; no earlier modules, private repositories, or prior conversation are needed.
+Learn Pi architecture by reading source and answering questions with an AI tutor. This is a community learning fork, not an official Pi course. No earlier course or private project is required.
+
+## Install & Quickstart
+
+Open a coding assistant with Git, network access, and permission to read/write local files and execute commands. Paste this prompt; it asks the assistant to download the source and begin teaching in the same session:
+
+```text
+Clone https://github.com/co1smos/teach-you-pi-agent.git into a new directory, or reuse an existing checkout without overwriting local work.
+From the checkout root, read doc/questions.md and follow its teacher protocol. Create ../pi-learning-progress.md from it only if absent; otherwise resume that private workbook. Keep public files unchanged.
+Tell me the checkout and progress paths, then immediately ask the first unfinished question in teaching order. Wait for my answer.
+```
+
+No Pi installation, npm dependencies, or Pi API keys are needed. The tutor needs its own configured model access and may ask you to approve file/command access. A chat assistant without these tools cannot perform the download. The teaching protocol already contains the 95% gate, hints, and post-PASS student/teacher answer recording, so the launch prompt does not repeat them.
+
+Prefer to clone manually? Run the following, open your assistant in the new directory, and paste the same prompt (it can reuse this checkout):
+
+```sh
+git clone https://github.com/co1smos/teach-you-pi-agent.git
+cd teach-you-pi-agent
+```
+
+Successful startup ends with **Block 1 / Q1**, awaiting your answer—not a setup summary or a reference solution. When resuming, it starts at the first unfinished question instead.
 
 ## Choose your documents
 
 | Document | English | 中文 |
 |---|---|---|
-| Questions, teaching protocol, acceptance criteria, blank Q&A records | [questions.md](docs/m5/questions.md) | [questions.zh-CN.md](docs/m5/questions.zh-CN.md) |
-| Reference answers and source evidence — spoilers | [answers.md](docs/m5/answers.md) | [answers.zh-CN.md](docs/m5/answers.zh-CN.md) |
+| Questions, teaching protocol, acceptance criteria, blank Q&A records | [questions.md](doc/questions.md) | [questions.zh-CN.md](doc/questions.zh-CN.md) |
+| Reference answers and source evidence — spoilers | [answers.md](doc/answers.md) | [answers.zh-CN.md](doc/answers.zh-CN.md) |
 
 Questions and reference answers are separate so you can investigate before seeing a solution. Your **personal working workbook** still keeps the Q&A format: after a question passes, record your accepted answer, the teacher's standard answer, and decisive source evidence together. The public template contains no previous learner's answers or progress.
 
@@ -18,8 +39,6 @@ Questions and reference answers are separate so you can investigate before seein
 The source is pinned to upstream commit [`a32782520f69cd81b54814c3a13df4c7bd1f3ad7`](https://github.com/earendil-works/pi/tree/a32782520f69cd81b54814c3a13df4c7bd1f3ad7). This fork’s `main` contains the complete pinned source tree under `pi/` and the learning materials outside it. Upstream history is retained; the fork HEAD is not the source baseline. Do not switch to moving upstream `main` and expect identical line numbers.
 
 ```sh
-git clone https://github.com/co1smos/teach-you-pi-agent.git
-cd teach-you-pi-agent
 git diff a32782520f69cd81b54814c3a13df4c7bd1f3ad7 HEAD:pi
 ```
 
@@ -38,33 +57,11 @@ There are **14 questions**. IDs are stable references, not a numeric reading ord
 
 ## Self-study
 
-1. Pick English or Chinese. Copy its question workbook to a private writable location outside this repository, for example `../m5-progress.md`. Resolve source pointers from the teaching repository root (`pi/packages/...`), not the copy's directory.
+1. Pick English or Chinese. Copy its question workbook to a private writable location outside this repository, for example `../pi-learning-progress.md`. Resolve source pointers from the teaching repository root (`pi/packages/...`), not the copy's directory.
 2. Read the teacher protocol and the first question in teaching order. Leave the reference answer file closed.
 3. Trace definitions and callers. Explain the mechanism, ownership, data flow, and edge cases in your own words, citing files and symbols. Read beyond a line range if necessary.
 4. Compare your attempt with the source and then the matching reference answer. Revise until all requirements meet the **95% gate**. This is a qualitative correctness bar, not an automated numeric score.
 5. After PASS, update the question status and its Q&A record in your private workbook. Preserve your answer; put the standard answer immediately below, followed by evidence. Continue in block order.
-
-## Study with an AI tutor
-
-Use a coding assistant that can read this checkout. Give it the prompt below with your actual private workbook path. There is no special Pi/Hermes feature required.
-
-```text
-Teach me Pi from docs/m5/questions.md in this checkout.
-My private writable progress workbook is: <absolute path to my copy>.
-Follow the workbook's teacher protocol and 95% acceptance criteria.
-Verify claims against source baseline a32782520f69cd81b54814c3a13df4c7bd1f3ad7.
-Follow block order, ask one question at a time, and resume at the first non-PASS question.
-Before PASS, identify gaps and give targeted source pointers/Socratic hints, not the answer.
-You may privately consult only the current question in docs/m5/answers.md to assess an attempt;
-do not reveal or paraphrase it before PASS, and prefer source when the key disagrees.
-After PASS, update both the question status and its Q&A record in my private workbook:
-my accepted answer in my original wording/language, your standard answer, and source evidence.
-Keep this one file as the sole progress record even if I switch teaching language.
-Do not change Pi code, public templates, or the reference key; do not publish my answers.
-Start by announcing the block/topic/Q ID and asking the first unfinished question.
-```
-
-The protocol requires the teacher to stay on the same question while a core mechanism, responsibility boundary, or required edge case is missing. A plausible explanation without source evidence is not a pass. The full protocol and evaluation dimensions live in the question workbook; they are not replaced by this launch prompt.
 
 ## Resume and finish
 
@@ -74,4 +71,4 @@ Finish when every question has a PASS and a student answer, teacher answer, and 
 
 ## Scope and attribution
 
-The material is adapted from an M5 learner/AI-teacher source-reading workbook. Reference answers are AI-assisted explanations, not upstream specifications; verify disputed claims in the pinned source. The original learner's answers and local progress are not included. Source ownership and the upstream [MIT license](pi/LICENSE) remain unchanged. The learning commit reorganizes the repository without editing the pinned source contents.
+The material is adapted from a learner/AI-teacher source-reading workbook. Reference answers are AI-assisted explanations, not upstream specifications; verify disputed claims in the pinned source. The original learner's answers and local progress are not included. Source ownership and the upstream [MIT license](pi/LICENSE) remain unchanged. The learning commit reorganizes the repository without editing the pinned source contents.

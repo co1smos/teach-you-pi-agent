@@ -1,6 +1,6 @@
-# M5 — Pi Architecture Reference Answers
+# Pi Architecture Reference Answers
 
-[中文](answers.zh-CN.md) | [Questions](questions.md) | [How to use](../../README.md)
+[中文](answers.zh-CN.md) | [Questions](questions.md) | [How to use](../README.md)
 
 Spoilers: answer each question from source first. Teachers may consult the current answer privately for grading but reveal the standard answer only after PASS. These are reference explanations adapted from the original teacher answers, not a completed learner record; the pinned source wins if a discrepancy is found.
 

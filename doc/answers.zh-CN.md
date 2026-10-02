@@ -1,6 +1,6 @@
-# M5 — Pi 架构参考答案
+# Pi 架构参考答案
 
-[English](answers.md) | [题目](questions.zh-CN.md) | [使用指南](../../README.zh-CN.md)
+[English](answers.md) | [题目](questions.zh-CN.md) | [使用指南](../README.zh-CN.md)
 
 剧透提醒：请先根据源码自行回答每一道题。教师可以私下查阅当前题目的答案以评判作答，但只能在 PASS 之后展示标准答案。这些参考解释改编自原有的教师答案，不是已完成的学习记录；如有不一致，以固定版本的源码为准。
 
